@@ -1,8 +1,14 @@
+import Searchbar from "components/SearchBox/SearchBox";
+import { Outlet } from "react-router-dom";
+
 const Movies = () => {
 
 
     return (
-<main></main>
+        <>
+            <Searchbar/>
+            <Outlet />
+        </> 
     );
 
 };
