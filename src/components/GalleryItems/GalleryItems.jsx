@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import zahlushka from '../../Images/zahlushka.jpg';
 
 
 import PropTypes from 'prop-types';
@@ -14,7 +15,7 @@ const GalleryItems = ({ movie }) => {
             src={
                 movie.poster_path
                 ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
-                : []
+                : zahlushka
             }
             alt="img"
             />

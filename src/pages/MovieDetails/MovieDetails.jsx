@@ -2,7 +2,7 @@ import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { useRef, useEffect, useState } from 'react';
 import { getInfoMovie } from 'Services/getMovies';
 import MovieCard from 'components/MovieCard/MovieCard';
-import { AddInfo, AddInfoList } from './MovieDetails.styled';
+import { AddInfo, AddInfoList, BackLink } from './MovieDetails.styled';
 
 const MovieDetails = () => {
 
@@ -31,7 +31,7 @@ const MovieDetails = () => {
 
     return (
         <>
-            <Link to={backLinkHref.current}>Back</Link>
+            <BackLink to={backLinkHref.current}>Back</BackLink>
             <MovieCard movieInfo={movieInfo}></MovieCard>
             <AddInfoList>
                 <AddInfo>

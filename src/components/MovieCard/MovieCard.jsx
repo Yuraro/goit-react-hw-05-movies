@@ -1,18 +1,19 @@
-import { Outlet } from "react-router-dom";
+
+import zahlushka from '../../Images/zahlushka.jpg';
 
 
-const { Wraper, InfoWraper, Title, Score, UserScore, Owerview, GenresTitle, GenresList, Genres } = require("./MovieCard.styled");
+const { Wraper, InfoWraper, Title, Score, UserScore, Owerview, GenresTitle, GenresList, Genres, PosterImage } = require("./MovieCard.styled");
 
 const MovieCard = ({ movieInfo }) => {
     const getYear = () => new Date(movieInfo.release_date).getFullYear();
 
     return (
         <Wraper>
-            <img
+            <PosterImage
                 src={
                     movieInfo.poster_path
                         ? `https://image.tmdb.org/t/p/w300${movieInfo.poster_path}`
-                        : []
+                        : zahlushka
                 }
                 alt="img"
             />
@@ -40,7 +41,6 @@ const MovieCard = ({ movieInfo }) => {
                         })}
                 </GenresList>
             </InfoWraper>
-            <Outlet/>
         </Wraper>
     )
 };

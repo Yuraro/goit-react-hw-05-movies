@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCastInfo } from 'Services/getMovies';
+import zahlushka from '../../Images/zahlushka.jpg';
 import { CastActor, CastCharacter, CastCharacterList, CastImg, CastItem, CastList, CastWrap } from './Cast.styled';
 
 const Cast = () => {
@@ -33,7 +34,7 @@ const Cast = () => {
                 <CastImg src={
                 actor.profile_path
                     ? `https://image.tmdb.org/t/p/w300${actor.profile_path}`
-                    : []
+                    : zahlushka
                 } alt="img" />
                 <CastActor>{actor.name}</CastActor>
                 <CastCharacter>

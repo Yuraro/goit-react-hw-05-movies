@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet } from "react-router-dom";
 import { getWeekTrending } from 'Services/getMovies';
-import { Link } from "./Home.styled";
+import { Link, TrendingItem, TrendingList, TrendingTitle, TrendingWrap } from "./Home.styled";
 
 const Home = () => {
     const [trendingMovies, setTrendingMovies] = useState([]);
@@ -21,19 +21,19 @@ const Home = () => {
     }, []);
 
     return (
-        <>
-            <h1>Trending today</h1>
-            <ul>
+        <TrendingWrap>
+            <TrendingTitle>Trending today</TrendingTitle>
+            <TrendingList>
                 {trendingMovies.map(movie => (
-                    <li key={movie.id}>
+                    <TrendingItem key={movie.id}>
                         <Link to={`/movies/${movie.id}`}>
                             {movie.title ?? movie.name}
                         </Link>
-                    </li>
+                    </TrendingItem>
                 ))}
-            </ul>
+            </TrendingList>
             <Outlet />
-        </>
+        </TrendingWrap>
     );
 };
 
