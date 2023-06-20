@@ -18,7 +18,7 @@ const Cast = () => {
         const movieCast = response.cast;
             
         if (movieCast.length === 0) {
-            return notification(`There is no available information about the cast!!`);
+            return notification(`There is no available information about the cast!`);
             }
 
         setCast(movieCast);
