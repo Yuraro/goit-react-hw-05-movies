@@ -1,3 +1,4 @@
+import { notification } from 'components/Norification/Notification';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCastInfo } from 'Services/getMovies';
@@ -15,6 +16,10 @@ const Cast = () => {
         try {
         const response = await getCastInfo(movieId);
         const movieCast = response.cast;
+            
+        if (movieCast.length === 0) {
+            return notification(`There is no available information about the cast!!`);
+            }
 
         setCast(movieCast);
         } catch (error) {
