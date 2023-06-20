@@ -6,6 +6,7 @@ import { getBySearch } from 'Services/getMovies';
 import Loader from 'components/Loader/Loader';
 import Gallery from 'components/Gallery/Gallery';
 import { MovieGalleryWrap } from './Movies.styled';
+import { notification } from 'components/Norification/Notification';
 
 const Movies = () => {
 
@@ -26,12 +27,12 @@ const Movies = () => {
         const searchMovies = response.results;
 
         if (searchMovies.length === 0) {
-            return setError(`No results were found for ${query}!`);
+            return notification(`No results were found for ${query}!`);
         }
 
         setMovies(searchMovies);
         } catch (error) {
-        setError('Something went wrong. Try again.');
+        notification('Something went wrong. Try again.');
         } finally {
         setIsLoading(false);
         }
@@ -41,10 +42,10 @@ const Movies = () => {
 
     const handleSubmit = newQuery => {
     if (newQuery.trim() === '') {
-        alert('Nothing founded!');
+        notification('Nothing found!');
         return;
     } else if (newQuery === query) {
-        alert('Enter new movie!');
+        notification('Enter a new movie!');
         return;
     }
 
