@@ -27,6 +27,7 @@ const Searchbar = ({ onSubmit }) => {
         setValue('');
     };
 
+
     return (
         <Wrap>
             <Form type="submit" onSubmit={handleSubmit}>
