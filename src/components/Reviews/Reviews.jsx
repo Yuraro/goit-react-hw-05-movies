@@ -1,3 +1,4 @@
+import { notification } from 'components/Norification/Notification';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getReviewsInfo } from 'Services/getMovies';
@@ -14,7 +15,11 @@ const Reviews = () => {
         try {
         const response = await getReviewsInfo(movieId);
         const movieReview = response.results;
-
+            
+            if (movieReview.length === 0) {
+            return notification(`No reviews were found!`);
+            }
+            
         setReviews(movieReview);
         } catch (error) {
         console.log(error);
